@@ -114,10 +114,7 @@ class RatingsReviews extends React.Component {
   getMeta() {
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${this.props.product_id}`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://3.144.130.202/reviews/meta?product_id=${this.props.product_id}`
     }).then((response) => {
       this.setState({ meta: response.data });
     }).catch((err) => {
@@ -132,10 +129,7 @@ class RatingsReviews extends React.Component {
     }
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?product_id=${this.props.product_id}&count=${count}&sort=${sort}`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://3.144.130.202/reviews?product_id=${this.props.product_id}&count=${count}&sort=${sort}`
     }).then((response) => {
       this.state.hasMoreReviews = true;
       if (this.state.filterByRating.length) {
@@ -171,10 +165,7 @@ class RatingsReviews extends React.Component {
     newReview.recommend = newReview.recommend === 'true';
     axios({
       method: 'post',
-      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews',
-      headers: {
-        'Authorization': token.TOKEN
-      },
+      url: 'http://3.144.130.202/reviews',
       data: newReview
     }).catch((err) => {
       console.log('error posting new review to server', err);
@@ -193,10 +184,7 @@ class RatingsReviews extends React.Component {
     }
     axios({
       method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/${review_id}/helpful`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://3.144.130.202/reviews/${review_id}/helpful`
     }).catch((err) => {
       console.log('error marking review as helpful', err);
     })
@@ -212,10 +200,7 @@ class RatingsReviews extends React.Component {
     })
     axios({
       method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/${review_id}/report`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://3.144.130.202/reviews/${review_id}/report`
     }).catch((err) => {
       console.log('error reporting review', err);
     })
