@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import token from '../../../config.js';
+// import token from '../../../config.js';
 import StarRating from '../../sharedComponents/StarRating.jsx';
 import noImage from '../../noImage.js';
 import $ from 'jquery';
@@ -28,10 +28,7 @@ class OutfitCard extends React.Component {
   fetchProduct() {
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${this.props.productid}`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://18.144.168.19/products/${this.props.productid}`
     })
       .then((response) => {
         this.setState({
@@ -43,10 +40,7 @@ class OutfitCard extends React.Component {
       });
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${this.props.productid}/styles`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://18.144.168.19/products/${this.props.productid}/styles`
     })
       .then((response) => {
         this.setState({
@@ -61,10 +55,7 @@ class OutfitCard extends React.Component {
       });
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${this.props.productid}`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://3.144.130.202/reviews/meta?product_id=${this.props.productid}`
     })
       .then((response) => {
         this.setState({

@@ -1,5 +1,4 @@
 import React from 'react';
-import token from '../../config.js';
 import axios from 'axios';
 import QAAnswer from './QAAnswer.jsx';
 import EachQuestion from './Q&AEachQuestion.jsx';
@@ -37,11 +36,11 @@ class QAList extends React.Component {
 
   getQuestions() {
     const product_id = this.props.product.id
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${product_id}&page=${1}&count=${100}`, {headers: {'Authorization': token.TOKEN}})
+    axios.get(`http://184.169.232.78/qa/questions/?product_id=${product_id}`)
       .then((res) => {
         this.setState({
-          questions: res.data.results,
-          originquestions: res.data.results
+          questions: res.data,
+          originquestions: res.data
         });
       })
       .catch((error) => {

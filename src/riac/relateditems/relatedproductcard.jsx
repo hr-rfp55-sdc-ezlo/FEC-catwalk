@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import $ from 'jquery';
-import token from '../../../config.js';
+// import token from '../../../config.js';
 import StarRating from '../../sharedComponents/StarRating.jsx';
 import RelatedProductModal from './relatedproductmodal.jsx';
 import ModalComparison from './modalcomparison.jsx';
@@ -40,10 +40,7 @@ class RelatedProductCard extends React.Component {
   fetchProduct() {
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${this.props.productid}`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://18.144.168.19/products/${this.props.productid}`
     })
       .then((response) => {
         this.setState({
@@ -55,10 +52,7 @@ class RelatedProductCard extends React.Component {
       });
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${this.props.productid}/styles`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://18.144.168.19/products/${this.props.productid}/styles`
     })
       .then((response) => {
         this.setState({

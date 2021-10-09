@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import token from '../config.js';
+// import token from '../config.js';
 import axios from 'axios';
 import './App.css';
 import eyes from './sharedComponents/suki-eyes.jpg'
@@ -30,10 +30,7 @@ class App extends React.Component {
   handleClick(id) {
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${id}`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://18.144.168.19/products/${id}`
     })
       .then((response) => {
         this.setState({
@@ -45,11 +42,7 @@ class App extends React.Component {
       });
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${id}/styles`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
-    })
+      url: `http://18.144.168.19/products/${id}/styles`})
       .then((response) => {
         this.setState({
           styles: response.data
@@ -60,10 +53,7 @@ class App extends React.Component {
       });
     axios({
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${id}/related`,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      url: `http://18.144.168.19/products/${id}/related`
     })
       .then((response) => {
         this.setState({

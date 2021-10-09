@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import token from '../../config.js';
 import './Q&A.css';
 //import { TrackClickContext } from './../trackClick.jsx';
 
@@ -34,12 +33,9 @@ class ModalQ extends React.Component {
     const product_id = this.props.product_id
     axios({
       method: 'post',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions`,
+      url: `http://184.169.232.78/qa/questions`,
       params: product_id,
-      data: question,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      data: question
     })
       .then((res) => {
         this.props.getQuestions();

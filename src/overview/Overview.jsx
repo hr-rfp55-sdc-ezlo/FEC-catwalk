@@ -5,7 +5,7 @@ import AddToCart from './AddToCart.jsx';
 import _ from 'underscore';
 import StarRating from '../sharedComponents/StarRating.jsx';
 import axios from 'axios';
-import token from '../../config.js';
+// import token from '../../config.js';
 import './OverviewStyleSheet.css';
 
 import React from 'react';
@@ -32,7 +32,7 @@ class Overview extends React.Component {
       // fetch review and rating data
       axios({
         method: 'get',
-        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${this.props.styles.product_id}`,
+        url: `http://3.144.130.202/reviews/meta?product_id=${this.props.styles.product_id}`,
         headers: {
           'Authorization': token.TOKEN
         }

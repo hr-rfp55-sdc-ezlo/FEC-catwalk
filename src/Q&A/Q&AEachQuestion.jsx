@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import token from '../../config.js';
 import QAAnswer from './QAAnswer.jsx';
 import ModalA from './ModalA.jsx';
 import { TrackClickContext } from './../trackClick.jsx'
@@ -41,12 +40,9 @@ class EachQuestion extends React.Component {
     const question_id = this.props.question.question_id;
     axios({
       method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question_id}/helpful`,
+      url: `http://184.169.232.78/qa/questions/${question_id}/helpful`,
       params: question_id,
-      data: num,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      data: num
     })
       .then((res) => {
         this.props.getQuestions();
@@ -60,12 +56,9 @@ class EachQuestion extends React.Component {
     const question_id = this.props.question.question_id;
     axios({
       method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question_id}/report`,
+      url: `http://184.169.232.78/qa/questions/${question_id}/report`,
       parames: question_id,
-      data: input,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      data: input
     })
       .then((res) => {
         this.props.getQuestions();

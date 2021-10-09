@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import token from './../config.js';
+// import token from './../config.js';
 import axios from 'axios';
 
 export const TrackClickContext = createContext();

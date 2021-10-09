@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import token from '../../config.js';
 
 
 class EachAnswer extends React.Component {
@@ -23,12 +22,9 @@ class EachAnswer extends React.Component {
     const answer_id = this.props.answer.id;
     axios({
       method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${answer_id}/helpful`,
+      url: `http://184.169.232.78/qa/answers/${answer_id}/helpful`,
       params: answer_id,
-      data: num,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      data: num
     })
       .then((res) => {
         this.props.getQuestions();
@@ -42,12 +38,9 @@ class EachAnswer extends React.Component {
     const answer_id = this.props.answer.id;
     axios({
       method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${answer_id}/report`,
+      url: `http://184.169.232.78/qa/answers/${answer_id}/report`,
       parames: answer_id,
-      data: input,
-      headers: {
-        'Authorization': token.TOKEN
-      }
+      data: input
     })
       .then((res) => {
         this.props.getQuestions();
